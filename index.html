@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parrot — Interactive Poster</title>
+    <!-- 0. Web Font : 산세리프 Inter Tight -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
+    />
+    <!-- 1. Reset CSS : 브라우저 기본 스타일 초기화 -->
+    <link rel="stylesheet" href="./style/reset.css" />
+    <!-- 2. Main CSS : 우리가 작성한 디자인 적용 -->
+    <link rel="stylesheet" href="./style/style.css" />
+    <!-- 3. jQuery Library : jQuery CDN 연결-->
+    <script
+      src="https://code.jquery.com/jquery-4.0.0.js"
+      integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U="
+      crossorigin="anonymous"
+    ></script>
+    <!-- 4. My JavaScript : 우리가 작성한 스크립트 코드 연결 -->
+    <script src="./js/script.js" defer></script>
+  </head>
+  <body>
+    <main id="poster">
+      <!-- 왼쪽 : 제목 · 앵무새 · 5문장 -->
+      <section class="left">
+        <h1>Parrot</h1>
+
+        <figure class="figure">
+          <!-- 앵무새 : 꼬리 · 몸 · 머리 · 눈 · 부리 (오른쪽을 바라봄) -->
+          <svg id="parrot" viewBox="0 0 400 400" aria-label="A parrot sitting on a branch">
+            <g id="tail-move">
+              <path id="tail" class="accent" d="M 166 276 C 156 310, 144 340, 132 376 L 146 376 C 158 342, 174 312, 198 290 Z" />
+            </g>
+
+            <line id="branch" x1="-400" y1="302" x2="420" y2="288" />
+
+            <g id="bird">
+              <ellipse class="white" cx="192" cy="230" rx="46" ry="72" transform="rotate(-15 192 230)" />
+              <g id="head">
+                <circle class="white" cx="224" cy="150" r="36" />
+                <circle class="black" cx="238" cy="144" r="4.5" id="eye" />
+                <path id="jaw" class="accent dim" d="M 254 160 Q 270 160 280 168 Q 268 178 254 170 Z" />
+                <path id="beak" class="accent" d="M 254 134 Q 288 138 286 170 Q 272 158 254 160 Z" />
+              </g>
+            </g>
+          </svg>
+        </figure>
+
+        <!-- 5문장 : 호버 → 커짐 / 클릭 → 앵무새가 말함 -->
+        <ol class="lines">
+          <li tabindex="0" data-color="#ff5a36"><span class="no">01</span><span class="txt">Feathers remember the wind, and I remember your words.</span><i class="bar"></i></li>
+          <li tabindex="0" data-color="#ffc23d"><span class="no">02</span><span class="txt">One syllable at a time, I land on the rhythm.</span><i class="bar"></i></li>
+          <li tabindex="0" data-color="#ff4f8b"><span class="no">03</span><span class="txt">From green to red, my colors slowly change.</span><i class="bar"></i></li>
+          <li tabindex="0" data-color="#4d8dff"><span class="no">04</span><span class="txt">Repeating is not imitation, it is an answer.</span><i class="bar"></i></li>
+          <li tabindex="0" data-color="#3ddc84"><span class="no">05</span><span class="txt">At the end of the branch, I sing today's sentence.</span><i class="bar"></i></li>
+        </ol>
+      </section>
+
+      <!-- 오른쪽 : 앵무새가 말하는 문장 -->
+      <section class="right">
+        <div id="speech"><p class="hint">Click a sentence.</p></div>
+      </section>
+
+      <!-- 부리에서 문장으로 이어지는 목소리 선 -->
+      <svg id="voice" aria-hidden="true"><path /></svg>
+    </main>
+  </body>
+</html>
